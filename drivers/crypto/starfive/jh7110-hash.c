@@ -209,7 +209,8 @@ static int starfive_hash_copy_hash(struct ahash_request *req)
 	data = (u32 *)req->result;
 
 	for (count = 0; count < mlen; count++)
-		data[count] = readl(ctx->cryp->base + STARFIVE_HASH_SHARDR);
+		put_unaligned(readl(ctx->cryp->base + STARFIVE_HASH_SHARDR),
+			      &data[count]);
 
 	return 0;
 }
@@ -632,7 +633,6 @@ static struct ahash_engine_alg algs_sha2_sm3[] = {
 						  CRYPTO_ALG_NEED_FALLBACK,
 			.cra_blocksize		= SHA224_BLOCK_SIZE,
 			.cra_ctxsize		= sizeof(struct starfive_cryp_ctx),
-			.cra_alignmask		= 3,
 			.cra_module		= THIS_MODULE,
 		}
 	},
@@ -662,7 +662,6 @@ static struct ahash_engine_alg algs_sha2_sm3[] = {
 						  CRYPTO_ALG_NEED_FALLBACK,
 			.cra_blocksize		= SHA224_BLOCK_SIZE,
 			.cra_ctxsize		= sizeof(struct starfive_cryp_ctx),
-			.cra_alignmask		= 3,
 			.cra_module		= THIS_MODULE,
 		}
 	},
@@ -691,7 +690,6 @@ static struct ahash_engine_alg algs_sha2_sm3[] = {
 						  CRYPTO_ALG_NEED_FALLBACK,
 			.cra_blocksize		= SHA256_BLOCK_SIZE,
 			.cra_ctxsize		= sizeof(struct starfive_cryp_ctx),
-			.cra_alignmask		= 3,
 			.cra_module		= THIS_MODULE,
 		}
 	},
@@ -721,7 +719,6 @@ static struct ahash_engine_alg algs_sha2_sm3[] = {
 						  CRYPTO_ALG_NEED_FALLBACK,
 			.cra_blocksize		= SHA256_BLOCK_SIZE,
 			.cra_ctxsize		= sizeof(struct starfive_cryp_ctx),
-			.cra_alignmask		= 3,
 			.cra_module		= THIS_MODULE,
 		}
 	},
@@ -750,7 +747,6 @@ static struct ahash_engine_alg algs_sha2_sm3[] = {
 						  CRYPTO_ALG_NEED_FALLBACK,
 			.cra_blocksize		= SHA384_BLOCK_SIZE,
 			.cra_ctxsize		= sizeof(struct starfive_cryp_ctx),
-			.cra_alignmask		= 3,
 			.cra_module		= THIS_MODULE,
 		}
 	},
@@ -780,7 +776,6 @@ static struct ahash_engine_alg algs_sha2_sm3[] = {
 						  CRYPTO_ALG_NEED_FALLBACK,
 			.cra_blocksize		= SHA384_BLOCK_SIZE,
 			.cra_ctxsize		= sizeof(struct starfive_cryp_ctx),
-			.cra_alignmask		= 3,
 			.cra_module		= THIS_MODULE,
 		}
 	},
@@ -809,7 +804,6 @@ static struct ahash_engine_alg algs_sha2_sm3[] = {
 						  CRYPTO_ALG_NEED_FALLBACK,
 			.cra_blocksize		= SHA512_BLOCK_SIZE,
 			.cra_ctxsize		= sizeof(struct starfive_cryp_ctx),
-			.cra_alignmask		= 3,
 			.cra_module		= THIS_MODULE,
 		}
 	},
@@ -839,7 +833,6 @@ static struct ahash_engine_alg algs_sha2_sm3[] = {
 						  CRYPTO_ALG_NEED_FALLBACK,
 			.cra_blocksize		= SHA512_BLOCK_SIZE,
 			.cra_ctxsize		= sizeof(struct starfive_cryp_ctx),
-			.cra_alignmask		= 3,
 			.cra_module		= THIS_MODULE,
 		}
 	},
@@ -868,7 +861,6 @@ static struct ahash_engine_alg algs_sha2_sm3[] = {
 						  CRYPTO_ALG_NEED_FALLBACK,
 			.cra_blocksize		= SM3_BLOCK_SIZE,
 			.cra_ctxsize		= sizeof(struct starfive_cryp_ctx),
-			.cra_alignmask		= 3,
 			.cra_module		= THIS_MODULE,
 		}
 	},
@@ -898,7 +890,6 @@ static struct ahash_engine_alg algs_sha2_sm3[] = {
 						  CRYPTO_ALG_NEED_FALLBACK,
 			.cra_blocksize		= SM3_BLOCK_SIZE,
 			.cra_ctxsize		= sizeof(struct starfive_cryp_ctx),
-			.cra_alignmask		= 3,
 			.cra_module		= THIS_MODULE,
 		}
 	},
