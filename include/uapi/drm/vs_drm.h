@@ -8,6 +8,8 @@
 
 #include "drm.h"
 
+typedef _Bool                   bool;
+
 enum drm_vs_degamma_mode {
     VS_DEGAMMA_DISABLE = 0,
     VS_DEGAMMA_BT709 = 1,
