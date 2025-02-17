@@ -331,11 +331,11 @@ struct jh7110_isp_sc_setting {
 
 struct jh7110_isp_outss_setting {
 	__u8 which;
-	__u16 stride;	// Output Image Stride Register, 8-byte(64bit) granularity.
-	__u8 hsm;		// horizontal scale mode
-	__u32 hsf;		// horizontal scale factor (time 4096)
-	__u8 vsm;		// vertical scale mode
-	__u32 vsf;		// vertical scale factor (time 4096)
+	__u16 stride;	/* Output Image Stride Register, 8-byte(64bit) granularity. */
+	__u8 hsm;		/* horizontal scale mode */
+	__u32 hsf;		/* horizontal scale factor (time 4096) */
+	__u8 vsm;		/* vertical scale mode */
+	__u32 vsf;		/* vertical scale factor (time 4096) */
 };
 
 struct jh7110_isp_sc_buffer {
